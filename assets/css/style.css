@@ -1,0 +1,276 @@
+:root {
+  --light-bgcolor: #f1f1f1;
+  --light-textcolor: #111;
+  --dark-bgcolor: #111;
+  --dark-textcolor: #f1f1f1;
+  --title-bgcolor: #8eb9f8;
+  --title-textcolor: #041c41;
+  --page-padding: 10%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  line-height: 1.5;
+  background-color: #eef3fa;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+
+main a[href*="http"]::after,
+main a[href*="www."]::after {
+  font: normal normal normal 14px/1 FontAwesome;
+  content: " \f08e";
+}
+
+main a[href*="mailto"]::after {
+  font: normal normal normal 14px/1 FontAwesome;
+  content: " \f0e0";
+}
+
+main a[href$=".pdf"]::after {
+  font: normal normal normal 14px/1 FontAwesome;
+  content: " \f1c1";
+}
+
+header {
+  height: 80px;
+  background-color: var(--dark-bgcolor);
+  padding: 20px 0px;
+}
+
+#main-title {
+  background-color: var(--title-bgcolor);
+  color: var(--title-textcolor);
+  padding: 0px 20px;
+  text-align: right;
+  padding-left: var(--page-padding);
+}
+
+#navbar {
+  padding-right: var(--page-padding);
+  width: 40%;
+}
+
+#navbar a {
+  color: var(--title-bgcolor);
+  padding: 1px 7px;
+  position: relative;
+}
+
+#navbar a::after {
+  width: 100%;
+  content: "";
+  border-bottom: 2px solid var(--title-bgcolor);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transition: width 1s .2s;
+}
+
+#navbar a:hover::after {
+  width: 0%;
+}
+
+.flexbox {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero-banner {
+  padding: 25px var(--page-padding);
+  min-height: 200px;
+  justify-content: flex-end;
+  align-items: flex-end;
+  background-image: url(../images/02-hero-bg.jpg);
+}
+
+.bg-images {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.subtitle {
+  background-color: var(--title-bgcolor);
+  color: var(--title-textcolor);
+  padding: 0px 5px;
+}
+
+main {
+  padding: 0px var(--page-padding);
+}
+
+.page-section {
+  display: grid;
+  grid-template-columns: 1fr 2px 3fr;
+  grid-template-areas:
+    "leftRow midBorder rightRow"
+  ;
+  color: var(--light-textcolor);
+  margin: 30px 0px;
+}
+
+@media only screen and (max-width:768px) {
+  .page-section {
+    display: grid;
+    grid-template-rows: 40px 2px 3fr;
+    grid-template-columns: auto;
+    grid-template-areas:
+      "leftRow"
+      "midBorder"
+      "rightRow"
+    ;
+    color: var(--light-textcolor);
+    margin: 30px 0px;
+  }
+
+}
+
+.page-section h2 {
+  font-size: 40px;
+  grid-area: leftRow;
+  word-wrap: break-word;
+  padding-right: var(--page-padding);
+}
+
+.section-mid-border {
+  grid-area: midBorder;
+  background-color: var(--dark-bgcolor);
+}
+
+.text,
+.work-container {
+  grid-area: rightRow;
+  text-align: justify;
+  padding-left: var(--page-padding);
+}
+
+@media only screen and (max-width:768px) {
+
+  .text,
+  .work-container {
+    padding: 20px 0px;
+  }
+}
+
+.text a:hover {
+  opacity: .8;
+}
+
+.work-container {}
+
+.work-container>div {
+  width: 48%;
+  margin: 5px 4px;
+}
+
+.work-container :first-child {
+  width: 100%;
+}
+
+@media only screen and (max-width:425px) {
+  .work-container>div {
+    width: 100%;
+  }
+}
+
+.contact .text a {
+  min-width: 90px;
+}
+
+.work-image {
+  width: 100%;
+}
+
+.portfolio-container {
+  min-height: 150px;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  border: 2px solid var(--title-bgcolor);
+}
+
+.portfolio-container:first-of-type {
+  min-height: 300px;
+
+}
+
+.portfolio-container h3 {
+  width: 100%;
+}
+
+.portfolio-1 {
+  background-image: url(../images/02-portfolio-1.jpg);
+}
+
+.portfolio-2 {
+  background-image: url(../images/02-portfolio-2.jpg);
+}
+
+.portfolio-3 {
+  background-image: url(../images/02-portfolio-3.jpg);
+}
+
+.portfolio-4 {
+  background-image: url(../images/02-portfolio-4.jpg);
+}
+
+.portfolio-5 {
+  background-image: url(../images/02-run-buddy.jpg);
+}
+
+.overcover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, .3);
+  z-index: 1;
+  transition: all 1s .2s;
+}
+
+.overcover:hover {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.work-text-container {
+  z-index: 2;
+  background-color: var(--title-bgcolor);
+  color: var(--light-textcolor);
+  margin-bottom: 20px;
+  padding: 2px 10px;
+}
+
+footer {
+  background-color: #041c41;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
